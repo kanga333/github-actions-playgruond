@@ -9,7 +9,7 @@ jobs:
         key: "staging-a-b"
         map: |
           {
-            "^staging(-[\\w/-]*)?$": {
+            "^staging(-[\\w\/-]*)?$": {
               "is_match": "true"
             },
             ".*": {
