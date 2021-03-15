@@ -11,7 +11,7 @@ jobs:
           {
             "^staging(-[\\w/-]*)?$": {
               "is_match": "true"
-            }
+            },
             ".*": {
               "is_match": "false"
             }
