@@ -1,0 +1,20 @@
+on: [push]
+name: https://github.com/kanga333/variable-mapper/issues/16
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: kanga333/variable-mapper@v0.2.0
+      with:
+        key: "staging-a-b"
+        map: |
+          {
+            "^staging(-[\\w/-]*)?$": {
+              "is_match": "true"
+            }
+            ".*": {
+              "is_match": "false"
+            }
+          }
+    - name: Echo is_match
+      run: echo ${{ env.is_match }}
