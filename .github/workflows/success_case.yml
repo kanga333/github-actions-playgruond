@@ -19,4 +19,7 @@ jobs:
             }
           }
     - name: Echo result
-      run: echo ${{ env.result }}
+      run: |
+        cat << EOS
+        ${{ env.result }}
+        EOS
