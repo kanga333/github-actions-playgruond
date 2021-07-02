@@ -18,8 +18,7 @@ jobs:
               "result": ${{ toJSON(env.TEST_STRING) }}
             }
           }
-    - name: Echo result
+    - name: Check Disk Size
       run: |
-        cat << EOS
-        ${{ env.result }}
-        EOS
+        df -h
+        ls /*
