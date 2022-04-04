@@ -9,4 +9,5 @@ jobs:
       run: |
         echo '${{github.base_ref}}'
         echo '${{github.head_ref}}'
+        git diff --diff-filter=ACMR --name-only '${{github.base_ref}}' '${{github.head_ref}}'
         echo '${{github.ref}}'
