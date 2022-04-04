@@ -4,19 +4,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: calculate depth
-      id: c
-      run: |
-        depth=$(( ${{github.event.pull_request.commits}} + 2 ))
-        echo "::set-output name=DEPTH::$depth"
     - uses: actions/checkout@v3
-  # - uses: actions/checkout@v3
-  #   with:
-  #     ref: ${{github.base_ref}}
     - name: echo result
       run: |
         git fetch origin $GITHUB_BASE_REF --depth=1
-        echo '${{github.base_ref}}'
-        echo '${{github.head_ref}}'
-        git diff --diff-filter=ACMR --name-only $GITHUB_BASE_REF
-        echo '${{github.ref}}'
+        for filename in $(git diff --diff-filter=ACMR --name-only 'origin/${{github.base_ref}}'); do
+          echo $filename
+        done
