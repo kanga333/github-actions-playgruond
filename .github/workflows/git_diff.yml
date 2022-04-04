@@ -20,5 +20,5 @@ jobs:
         git branch
         echo '${{github.base_ref}}'
         echo '${{github.head_ref}}'
-        git diff --diff-filter=ACMR --name-only 'origin/${{github.base_ref}}' 'origin/${{github.head_ref}}'
+        git diff --diff-filter=ACMR --name-only 'origin/${{github.base_ref}}'
         echo '${{github.ref}}'
