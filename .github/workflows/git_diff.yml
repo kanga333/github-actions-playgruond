@@ -11,7 +11,7 @@ jobs:
         echo "::set-output name=DEPTH::$depth"
     - uses: actions/checkout@v3
       with:
-        fetch-depth: ${{steps.c.outputs.DEPTH}}
+        fetch-depth: 0
     # - uses: actions/checkout@v3
     #   with:
     #     ref: ${{github.base_ref}}
