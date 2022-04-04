@@ -8,7 +8,7 @@ jobs:
       id: c
       run: |
         depth=$(( ${{github.event.pull_request.commits}} + 1 ))
-        echo '::set-output name=DEPTH::$depth'
+        echo "::set-output name=DEPTH::$depth"
     - uses: actions/checkout@v3
       with:
         fetch-depth: ${{steps.c.outputs.DEPTH}}
