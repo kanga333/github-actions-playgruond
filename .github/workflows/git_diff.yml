@@ -11,13 +11,14 @@ jobs:
         echo "::set-output name=DEPTH::$depth"
     - uses: actions/checkout@v3
       with:
-        fetch-depth: 0
-    # - uses: actions/checkout@v3
-    #   with:
-    #     ref: ${{github.base_ref}}
+        fetch-depth: ${{steps.c.outputs.DEPTH}}
+  # - uses: actions/checkout@v3
+  #   with:
+  #     ref: ${{github.base_ref}}
     - name: echo result
       run: |
+        git branch
         echo '${{github.base_ref}}'
         echo '${{github.head_ref}}'
-        git diff --diff-filter=ACMR --name-only 'origin/${{github.base_ref}}' '${{github.head_ref}}'
+        git diff --diff-filter=ACMR --name-only 'origin/${{github.base_ref}}' 'origin/${{github.head_ref}}'
         echo '${{github.ref}}'
