@@ -17,6 +17,7 @@ jobs:
   #     ref: ${{github.base_ref}}
     - name: echo result
       run: |
+        git fetch origin $GITHUB_BASE_REF --depth=1
         git branch
         echo '${{github.base_ref}}'
         echo '${{github.head_ref}}'
