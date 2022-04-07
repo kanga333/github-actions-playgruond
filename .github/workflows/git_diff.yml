@@ -1,13 +1,20 @@
-on: [pull_request]
-name: diff_check
+on:
+  pull_request:
+    types: "labeled"
+name: add commit
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: echo result
+    - name: add commit
       run: |
-        git fetch origin $GITHUB_BASE_REF --depth=1
-        for filename in $(git diff --diff-filter=ACMR --name-only 'origin/${{github.base_ref}}'); do
-          echo $filename
-        done
+        echo "test" >> test.txt
+        git add . 
+        git config user.name github-actions[bot]
+        git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+        git commit --author=. -m 'test'
+        git branch
+        git remote
+        git push
+
