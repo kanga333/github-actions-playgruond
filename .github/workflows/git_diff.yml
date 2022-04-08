@@ -16,11 +16,5 @@ jobs:
         git commit --author=. -m 'test'
         git branch
         git remote
-        echo ${GITHUB_REF##*/}
-        echo ${{ github.ref_name }}
-        echo ${{ github.event.pull_request.head.ref }}
-        echo ${{ env.CON }}
-        git push origin ${GITHUB_REF##*/}
-      env:
-        CON: ${{ toJson(github) }}
+        git push origin ${ github.head_ref }
 
