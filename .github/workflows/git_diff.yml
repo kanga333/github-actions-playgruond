@@ -16,5 +16,5 @@ jobs:
         git commit --author=. -m 'test'
         git branch
         git remote
-        git push origin ${ github.head_ref }
+        git push origin ${{ github.head_ref }}
 
