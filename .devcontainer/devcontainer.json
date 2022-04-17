@@ -1,0 +1,14 @@
+{
+	"name": "Development Environment",
+	"build": { 
+		"context": "..",
+		"dockerfile": "../Dockerfile",
+		"cacheFrom": "ghcr.io/kanga333/github-playgruond/codespace:cache",
+	},
+	"runArgs": ["--init", "--privileged"],
+	"features": {
+		"docker-in-docker": {
+			"version": "latest"
+		}
+	}
+}
