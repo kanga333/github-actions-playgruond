@@ -6,9 +6,6 @@
 		"cacheFrom": "ghcr.io/kanga333/github-playgruond/codespace:cache",
 	},
 	"runArgs": ["--init", "--privileged"],
-	"features": {
-		"docker-in-docker": {
-			"version": "latest"
-		}
-	}
+	"mounts": ["source=dind-var-lib-docker,target=/var/lib/docker,type=volume"],
+	"overrideCommand": false
 }
