@@ -11,7 +11,7 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
-          const output = `${{ steps.cicd.outputs.stdout }}`;
+          const output = `aaa`;
           github.issues.createComment({
             issue_number: context.issue.number,
             owner: context.repo.owner,
@@ -45,10 +45,11 @@ jobs:
   test_json_array_builder:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v3
     - uses: kanga333/json-array-builder@main
       id: array
       with:
-        cmd: ls .github/workflows
+        cmd: ls 
         separator: newline
     - name: Echo environment
       run: echo ${{ steps.array.outputs.build }}
