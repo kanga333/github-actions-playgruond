@@ -18,14 +18,14 @@ jobs:
             repo: context.repo.repo,
             body: output
           })
-    - uses: kanga333/comment-hider@update-to-node16
+    - uses: kanga333/comment-hider@master
       name: Hide bot comments
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
   test_variable_mapper:
     runs-on: ubuntu-latest
     steps:
-    - uses: kanga333/variable-mapper@update-to-node16
+    - uses: kanga333/variable-mapper@master
       with:
         key: "${{github.base_ref}}"
         map: |
@@ -46,7 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: kanga333/json-array-builder@update-to-node16
+    - uses: kanga333/json-array-builder@main
       id: array
       with:
         cmd: ls 
