@@ -14,12 +14,12 @@ jobs:
           map: |
             {
               "master": {
-                "VITE_ENVIRONMENT": "production",
+                "VITE_ENVIRONMENT": "production"
               },
               "develop": {
-                "VITE_ENVIRONMENT": "staging",
+                "VITE_ENVIRONMENT": "staging"
               },
               ".*": {
-                "VITE_ENVIRONMENT": "development",
+                "VITE_ENVIRONMENT": "development"
               }
             }
